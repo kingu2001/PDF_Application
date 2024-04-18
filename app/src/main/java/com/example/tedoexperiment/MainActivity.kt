@@ -2,19 +2,12 @@ package com.example.tedoexperiment
 
 import android.os.Bundle
 import android.util.Log
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
 import com.example.tedoexperiment.api.ApiClient
 import com.example.tedoexperiment.data.TestDocumentResponse
 import com.example.tedoexperiment.databinding.ActivityMainBinding
 import retrofit2.Response
-import javax.security.auth.callback.Callback
+import retrofit2.Call
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,19 +19,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         val client = ApiClient.apiService.fetchTestDocuments("1")
         client.enqueue(
-            object : Callback<TestDocumentResponse> {
+            object : retrofit2.Callback<TestDocumentResponse> {
 
                 override fun onResponse(
-                    callback: Callback,
+                    call : Call<TestDocumentResponse>,
                     response: Response<TestDocumentResponse>
                 ){
                     if(response.isSuccessful){
-                        Log.d("testDocuments", ""+response.body())
+                        Log.d("test", "" + response.body())
                     }
                 }
 
                 override fun onFailure(
-                    callback: Callback,
+                    call: Call<TestDocumentResponse>,
                     t : Throwable
                 ){
                     Log.e("failed", ""+t.message)
