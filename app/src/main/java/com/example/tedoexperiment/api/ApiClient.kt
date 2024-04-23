@@ -8,7 +8,8 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 object ApiClient {
-    private val base_url = "http://localhost:5297/api/Document/GetAllDocumentInformation"
+    private val base_url = "http://10.0.2.2:5297/api/Document/GetAllDocumentInformation/"
+        /* "http://localhost:5297/api/Document/GetAllDocumentInformation" */
     private val retrofit : Retrofit by lazy{
         Retrofit.Builder()
             .baseUrl(base_url)
