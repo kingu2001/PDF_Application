@@ -1,13 +1,14 @@
 package com.example.tedoexperiment.api
 
 import com.example.tedoexperiment.data.TestDocumentResponse
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-object ApiClient {
+/*object ApiClient {
     private val base_url = "http://10.0.2.2:5297/api/Document/GetAllDocumentInformation/"
         /* "http://localhost:5297/api/Document/GetAllDocumentInformation" */
     private val retrofit : Retrofit by lazy{
@@ -21,7 +22,7 @@ object ApiClient {
     }
 }
 
-interface ApiService{
+interface ApiService {
     @GET("testDocument")
-    fun fetchTestDocuments(@Query("testDocument") page:String): Call<TestDocumentResponse>
-}
+    fun fetchTestDocument(@Query("testDocument") documentId: String): Call<ResponseBody>
+} */
