@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             }
         )
 
-        binding.floatingActionButton.setOnClickListener {
+        binding.downloadPDF.setOnClickListener {
             // Load PDF from the assets folder
             val assetFileName = "CV.pdf" // Replace with your PDF file name
             loadPDFFromAssets(assetFileName)
